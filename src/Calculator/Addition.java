@@ -91,6 +91,7 @@ public class Addition {
 		return s;
 	}
 
+
 	public String AddInteger(int[] a1, int[] a2, int ten) {
 		String s = new String(); //return
 		int max = 0;
@@ -104,10 +105,6 @@ public class Addition {
 		int outputs[] = new int[max];
 
 		for ( int i = 1; i <= max; i++ ) {
-			if ( ten == 1 ) {
-				outputs[max - i]++;
-				ten = 0;
-			}
 			if ( a1.length - i < 0 ) {
 				outputs[max - i] = a2[a2.length - i];
 			}
@@ -116,6 +113,10 @@ public class Addition {
 			}
 			else {
 				outputs[max - i] = a1[a1.length - i] + a2[a2.length - i];
+			}
+			if ( ten == 1 ) {
+				outputs[max - i]++;
+				ten = 0;
 			}
 			if ( outputs[max - i] >= 10 && i != max ) {
 				outputs[max - i] %= 10;
@@ -151,7 +152,13 @@ public class Addition {
 		String s_a = t.AddInteger(v1.a, v2.a, t.ten);
 
 		// output
-		System.out.print(s_a + '.' + s_b);
+		System.out.print(s_a);
+		int check = 0;
+		for ( int i = 0; i < s_b.length(); i++ ) {
+			check += (s_b.charAt(i) - '0');
+		}
+		if ( check > 0 ) {
+			System.out.println('.' + s_b);
+		}
 	}
-
 }
