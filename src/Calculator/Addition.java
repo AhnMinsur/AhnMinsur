@@ -3,6 +3,7 @@ package Calculator;
 import java.util.Scanner;
 
 public class Addition {
+
 	public class Value {
 		public int[] a;
 		public int[] b;
